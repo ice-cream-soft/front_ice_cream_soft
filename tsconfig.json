@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -15,6 +16,17 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/shared/scripts/getTenantData.js",
+    "src/shared/providers/Layout/styles.ts",
+    "src/shared/assets/vendors/style.js",
+    "src/pages/reset/index.page.jsx",
+    "src/pages/reset/[token].page.jsx",
+    "src/pages/dashboard/index.jsx",
+    "src/pages/courses/Filters/index.jsx"
+  ]
 }
