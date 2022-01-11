@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Button from "shared/components/atoms/Button";
 import Input from "shared/components/atoms/Input";
@@ -14,17 +15,16 @@ const Content = () => {
         alt=""
       />
 
-      <h1>Faça seu Logon</h1>
+      <h1>Cadastre-se</h1>
 
       <form action="">
+        <Input type="text" placeholder="Seu Nome" />
         <Input type="text" placeholder="Seu Email" />
         <Input type="text" placeholder="Sua senha" />
-        <Button primary>Entrar</Button>
+        <Button primary>Cadastrar</Button>
       </form>
 
-      <Button>Esqueci minha senha</Button>
-
-      <Link href="/register">Criar conta</Link>
+      <Link href={"/login"}>Já possuo uma conta</Link>
     </Container>
   );
 };
