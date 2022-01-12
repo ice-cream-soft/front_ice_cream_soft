@@ -11,11 +11,16 @@ export const Container = styled.div`
 
   img {
     width: 150px;
+    cursor: pointer;
   }
 
   h1 {
     color: #1a1a1a;
-    font-weight: 600;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
   }
 
   form {
@@ -23,8 +28,11 @@ export const Container = styled.div`
     flex-direction: column;
 
     margin: 1.5rem 0 1rem;
-
+    padding: 0 1rem;
     row-gap: 0.5rem;
+
+    width: 100%;
+    max-width: 350px;
   }
 
   @media (max-width: 800px) {

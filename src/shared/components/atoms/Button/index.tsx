@@ -5,8 +5,12 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLElement> {
   primary?: boolean;
 }
 
-const Button: React.FC<IButtonProps> = ({ children, primary }) => {
-  return <Container primary={primary}>{children}</Container>;
+const Button: React.FC<IButtonProps> = ({ children, primary, ...rest }) => {
+  return (
+    <Container primary={primary} {...rest}>
+      {children}
+    </Container>
+  );
 };
 
 export default Button;

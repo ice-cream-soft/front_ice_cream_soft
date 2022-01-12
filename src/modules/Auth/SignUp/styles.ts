@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  height: 100vh;
+export const Link = styled.a`
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #1a1a1a;
 
-  background: #fffcd9;
+  transition: 0.4s transform;
+
+  &:hover {
+    transform: translateX(+5px);
+  }
 `;
