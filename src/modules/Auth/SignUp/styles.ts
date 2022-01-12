@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Link = styled.a`
   margin-top: 1rem;
   text-decoration: none;
-  color: #1a1a1a;
+  color: #321409;
 
   transition: 0.4s transform;
 

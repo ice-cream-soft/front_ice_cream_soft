@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
 
   h1 {
-    color: #1a1a1a;
+    color: #321409;
 
     font-style: normal;
     font-weight: 500;

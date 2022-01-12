@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import Link from "next/link";
+
+import HomeModule from "modules/Home";
 
 const Home: NextPage = () => {
   return (
     <>
-      <h1>Home</h1>
-      <Link href="/login">Login</Link>
+      <HomeModule />
     </>
   );
 };
