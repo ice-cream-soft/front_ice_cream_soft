@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
+    width: 100vw;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
   }

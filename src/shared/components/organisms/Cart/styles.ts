@@ -5,9 +5,16 @@ export const Container = styled.div`
   position: relative;
 
   button {
+    display: flex;
+    align-items: center;
+
     width: 100%;
     background: none;
     border: none;
+
+    svg {
+      margin: 0 0.5rem;
+    }
   }
 `;
 

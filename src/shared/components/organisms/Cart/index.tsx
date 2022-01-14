@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { IoCartOutline } from "react-icons/io5";
+
 import { CartContent, Container } from "./styles";
 
 const Cart = () => {
@@ -7,7 +9,10 @@ const Cart = () => {
 
   return (
     <Container>
-      <button onClick={() => setShowCart(!showCart)}>Carrinho</button>
+      <button onClick={() => setShowCart(!showCart)}>
+        <IoCartOutline />
+        Carrinho
+      </button>
 
       {showCart && (
         <CartContent>
