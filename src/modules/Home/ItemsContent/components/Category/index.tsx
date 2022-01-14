@@ -5,10 +5,16 @@ import mock from "../../../../../shared/assets/icons/ice_cream_soft_logo.png";
 
 import { CategoryContainer } from "./styles";
 
+interface IItem {
+  name: string;
+  description: string;
+  thumbnail: string;
+}
+
 interface ICategoryProps {
   category: {
     name: string;
-    items: [{ name: string; description: string; thumbnail: string }];
+    items: Array<IItem>;
   };
 }
 

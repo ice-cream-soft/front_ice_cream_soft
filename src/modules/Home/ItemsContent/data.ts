@@ -1,4 +1,16 @@
-export const categories = [
+interface IItem {
+  name: string;
+  description: string;
+  thumbnail: string;
+}
+interface ICategory {
+  name: string;
+  items: Array<IItem>;
+}
+
+type ICategories = Array<ICategory>;
+
+export const categories: ICategories = [
   {
     name: "OS QUERIDINHOS - sorvete na pedra",
     items: [
