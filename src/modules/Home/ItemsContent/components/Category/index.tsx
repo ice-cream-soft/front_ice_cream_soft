@@ -5,12 +5,17 @@ import mock from "../../../../../shared/assets/icons/ice_cream_soft_logo.png";
 
 import { CategoryContainer } from "./styles";
 
-const Category = ({ category }) => {
+interface ICategoryProps {
+  category: {
+    name: string;
+    items: [{ name: string; description: string; thumbnail: string }];
+  };
+}
+
+const Category = ({ category }: ICategoryProps) => {
   const { name, items } = category;
 
   const [showItems, setShowItems] = useState(false);
-
-  console.log(items, "items");
 
   return (
     <CategoryContainer>
