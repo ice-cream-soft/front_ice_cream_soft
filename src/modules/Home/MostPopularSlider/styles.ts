@@ -21,6 +21,12 @@ export const MostPopularContent = styled.div`
     }
   }
 
+  .alice-carousel__prev-btn,
+  .alice-carousel__next-btn,
+  .alice-carousel__dots {
+    display: none;
+  }
+
   img {
     width: 100%;
     height: 100%;

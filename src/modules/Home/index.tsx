@@ -1,6 +1,7 @@
 import React from "react";
 
 import HeaderTopbar from "shared/components/organisms/Header";
+import ItemsContent from "./ItemsContent";
 
 import MostPopularSlider from "./MostPopularSlider";
 import { Container } from "./styles";
@@ -25,12 +26,7 @@ const Home = () => {
           </section>
         </div>
 
-        <button>Monte o seu</button>
-        <button>Os queridinhos - sorvete na pedra</button>
-        <button>Shake soft</button>
-        <button>Milkshake</button>
-        <button>Milkshake Top 5</button>
-        <button>Sundae</button>
+        <ItemsContent />
       </div>
     </Container>
   );
