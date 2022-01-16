@@ -12,6 +12,26 @@ type ICategories = Array<ICategory>;
 
 export const categories: ICategories = [
   {
+    name: "MONTE O SEU - sorvete na pedra",
+    items: [
+      {
+        name: "Baunilha",
+        description: "Sabor do sorvete",
+        thumbnail: "",
+      },
+      {
+        name: "Chocolate",
+        description: "Sabor do sorvete",
+        thumbnail: "",
+      },
+      {
+        name: "Misto",
+        description: "Sabor do sorvete",
+        thumbnail: "",
+      },
+    ],
+  },
+  {
     name: "OS QUERIDINHOS - sorvete na pedra",
     items: [
       {

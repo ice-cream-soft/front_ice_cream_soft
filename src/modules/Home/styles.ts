@@ -15,7 +15,7 @@ export const Container = styled.div`
     .info {
       display: flex;
       justify-content: space-between;
-      margin: 2rem 0;
+      margin: 2rem 1rem;
 
       width: 100%;
 

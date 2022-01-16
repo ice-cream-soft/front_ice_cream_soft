@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import useOptionsModal from "shared/hooks/useOptionsModal";
 
 import mock from "../../../../../shared/assets/icons/ice_cream_soft_logo.png";
 
-import { CategoryContainer } from "./styles";
+import { CategoryContainer, Item, Info } from "./styles";
 
 interface IItem {
   name: string;
@@ -20,8 +21,14 @@ interface ICategoryProps {
 
 const Category = ({ category }: ICategoryProps) => {
   const { name, items } = category;
+  const { openOptionsModal, setProductInfo } = useOptionsModal();
 
-  const [showItems, setShowItems] = useState(false);
+  const [showItems, setShowItems] = useState(true);
+
+  function handleShowOptions(name: string) {
+    openOptionsModal();
+    setProductInfo({ name });
+  }
 
   return (
     <CategoryContainer>
@@ -30,19 +37,21 @@ const Category = ({ category }: ICategoryProps) => {
       {showItems && (
         <ul className="items">
           {items.map((item) => (
-            <li className="item">
-              <Image
-                src={!item.thumbnail ? mock : item.thumbnail}
-                height={"120px"}
-                width={"120px"}
-                alt=""
-              />
+            <Item onClick={() => handleShowOptions(item.name)}>
+              <div className="wrapper">
+                <Image
+                  src={!item.thumbnail ? mock : item.thumbnail}
+                  height={"120px"}
+                  width={"120px"}
+                  alt=""
+                />
+              </div>
 
-              <div className="info">
+              <Info>
                 <h4>{item.name}</h4>
                 <span>{item.description}</span>
-              </div>
-            </li>
+              </Info>
+            </Item>
           ))}
         </ul>
       )}

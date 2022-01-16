@@ -14,9 +14,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    width: 100vw;
+    width: 100%;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   
   button {
