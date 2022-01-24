@@ -15,11 +15,41 @@ import {
   ModalSettings,
 } from "./styles";
 import { options } from "./data";
+import useCart from "shared/hooks/useCart";
+
+interface IItems {
+  additionals: string;
+  filling: string;
+  size_dish: string;
+  size: string;
+}
 
 const ModalContent = () => {
+  const [price, setPrice] = useState(0);
+  const [items, setItems] = useState({} as IItems);
   const [quantity, setQuantity] = useState(1);
 
+  const { setCartItems } = useCart();
   const { closeOptionsModal, productInfo } = useOptionsModal();
+
+  function handleChange(e) {
+    setPrice((prevState) => prevState + e.price);
+
+    const item = { [e.target.name]: e.target.value };
+
+    setItems({ ...items, ...item });
+  }
+
+  function handleFinishOrder() {
+    setCartItems({
+      ...items,
+      quantity,
+      price,
+      name: productInfo.name,
+    });
+
+    closeOptionsModal();
+  }
 
   return (
     <ModalContainer>
@@ -33,7 +63,12 @@ const ModalContent = () => {
           {options.options.map((opt) => (
             <ListItem>
               <label>
-                <input type="radio" value={opt.size} name="qnt" />
+                <input
+                  type="radio"
+                  value={opt.size}
+                  name="size"
+                  onChange={(e) => handleChange({ ...e, price: opt.value })}
+                />
                 {opt.size}
               </label>
 
@@ -62,7 +97,8 @@ const ModalContent = () => {
                     <input
                       type="radio"
                       value={add.name}
-                      name={free_add.title}
+                      name={free_add.name}
+                      onChange={(e) => handleChange({ ...e, price: 0 })}
                     />
                     {add.name}
                   </label>
@@ -85,7 +121,8 @@ const ModalContent = () => {
                     <input
                       type="radio"
                       value={add.name}
-                      name={paid_add.title}
+                      name={paid_add.name}
+                      onChange={(e) => handleChange({ ...e, price: add.value })}
                     />
                     {add.name}
                   </label>
@@ -105,6 +142,7 @@ const ModalContent = () => {
         <h3>Quantidade</h3>
         <QuantitySection>
           <button
+            type="button"
             onClick={() => quantity > 1 && setQuantity(quantity - 1)}
             disabled={quantity === 1}
             className="less"
@@ -112,7 +150,11 @@ const ModalContent = () => {
             {" - "}
           </button>
           <span className="quantity_display">{quantity}</span>
-          <button onClick={() => setQuantity(quantity + 1)} className="more">
+          <button
+            type="button"
+            onClick={() => setQuantity(quantity + 1)}
+            className="more"
+          >
             {" + "}
           </button>
         </QuantitySection>
@@ -128,9 +170,13 @@ const ModalContent = () => {
         </div>
 
         <ModalSettings>
-          <button onClick={closeOptionsModal}>CANCELAR</button>
-          <button onClick={closeOptionsModal}>ADICIONAR AO PEDIDO</button>
+          <button onClick={closeOptionsModal} type="button">
+            CANCELAR
+          </button>
         </ModalSettings>
+        <button type="button" onClick={handleFinishOrder}>
+          ADICIONAR AO PEDIDO
+        </button>
       </Content>
     </ModalContainer>
   );

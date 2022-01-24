@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
 import { IoCartOutline } from "react-icons/io5";
+import useCart from "shared/hooks/useCart";
 
 import { CartContent, Container } from "./styles";
 
 const Cart = () => {
   const [showCart, setShowCart] = useState(false);
+  const { cartItems } = useCart();
 
   return (
     <Container>
@@ -17,10 +19,11 @@ const Cart = () => {
       {showCart && (
         <CartContent>
           <h3>Seu pedido</h3>
+          <div className="item">
+            <h5>{`${cartItems.quantity}x ${cartItems.name}`}</h5>
+          </div>
 
-          <h5>1x Sorvete</h5>
-
-          <span>Total: R$ 24,50</span>
+          <span>{`Total: R$ ${cartItems.price}`}</span>
         </CartContent>
       )}
     </Container>

@@ -16,6 +16,7 @@ export const options = {
   free_additionals: [
     {
       title: "Recheio",
+      name: "filling",
       max_choices: 1,
       additionals: [
         { name: "Diamante Negro" },
@@ -35,6 +36,7 @@ export const options = {
     },
     {
       title: "Acompanhamentos",
+      name: "side_dish",
       max_choices: 2,
       additionals: [
         { name: "Amendoim moído" },
@@ -53,6 +55,7 @@ export const options = {
   paid_additionals: [
     {
       title: "Adicionais",
+      name: "additionals",
       additionals: [
         { name: "Bombom S. Valsa", value: 2.0 },
 
